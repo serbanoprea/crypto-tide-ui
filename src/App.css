@@ -1,5 +1,6 @@
-.App {
-  text-align: center;
+body {
+  height: 100%;
+  background-color: black;
 }
 
 .App-logo {
@@ -35,4 +36,82 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.auth-box {
+  margin-top: 10%;
+  background: white;
+  border-radius: 5%;
+  padding: 15%;
+  
+  background: rgb(43, 43, 43);
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label,
+.input-field input[type=email]:focus + label,
+.input-field input[type=select]:focus + label,
+.input-field input[type=password]:focus + label,
+.input-field textarea:focus + label {
+  color: orange !important;
+}
+
+/* label blur color */
+.input-field input[type=text]:not(:focus) + label,
+.input-field input[type=email]:not(:focus) + label,
+.input-field input[type=select]:not(:focus) + label,
+.input-field input[type=password]:not(:focus) + label,
+.input-field textarea:focus + label {
+  color: #ffcc80 !important;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus,
+.input-field input[type=email]:focus,
+.input-field input[type=select]:focus,
+.input-field input[type=password]:focus,
+.input-field textarea:focus {
+  border-bottom: 1px solid orange !important;
+  box-shadow: 0 1px 0 0 #000;  
+  color: orange !important;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:not(:focus),
+.input-field input[type=email]:not(:focus),
+.input-field input[type=select]:not(:focus),
+.input-field input[type=password]:not(:focus),
+.input-field textarea:focus { 
+  color: #ffcc80 !important;
+}
+
+/* valid color */
+.input-field input[type=text].valid,
+.input-field input[type=email].valid,
+.input-field input[type=select].valid,
+.input-field input[type=password].valid,
+.input-field textarea.valid {
+  border-bottom: 1px solid #4caf50 !important;
+  box-shadow: 0 1px 0 0 #000; 
+  color: orange !important;
+}
+
+/* invalid color */
+.input-field input[type=text].invalid,
+.input-field input[type=email].invalid,
+.input-field input[type=select].invalid,
+.input-field input[type=password].invalid,
+.input-field textarea.invalid {
+  border-bottom: 1px solid #f44336 !important;
+  box-shadow: 0 1px 0 0 #000;
+  color: orange !important;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+  color: orange !important;
+}
+
+.auth-box {
+  color: orange;
 }

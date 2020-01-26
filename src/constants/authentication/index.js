@@ -1,0 +1,6 @@
+export const LOGIN_SUCCESS = "AUTH/LOGIN_SUCCESS";
+export const LOGIN_FAILURE = "AUTH/LOGIN_FAILURE";
+export const LOGIN_ATTEMPT = "AUTH/LOGIN_ATTEMPT";
+export const LOGOUT = "AUTH/LOGOUT";
+export const GET_TOKEN = "AUTH/GETTING_TOKEN";
+export const UPDATE_TOKEN = "AUTH/UPDATE_TOKEN";
