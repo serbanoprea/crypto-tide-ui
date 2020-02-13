@@ -3,17 +3,6 @@ body {
   background-color: black;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -114,4 +103,7 @@ body {
 
 .auth-box {
   color: orange;
+  -webkit-box-shadow: 25px 36px 22px -6px rgba(231,166,26,0.34);
+  -moz-box-shadow: 25px 36px 22px -6px rgba(231,166,26,0.34);
+  box-shadow: 25px 36px 22px -6px rgba(231,166,26,0.34);
 }
