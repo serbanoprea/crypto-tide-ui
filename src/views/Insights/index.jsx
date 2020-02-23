@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { getFromApi } from '../../utilities';
 import config from '../../config';
+import NavBar from '../../components/NavBar';
+import Ticker from './components/Ticker';
 
 export default class Insights extends Component {
     constructor(props){
@@ -9,13 +11,13 @@ export default class Insights extends Component {
             loadingTopRanked: true,
             loadingRankedGraph: true,
             loadingTopTrending: true,
-            topRanked: null,
-            rankedGraph: null,
-            topTrending: null,
+            topRanked: [],
+            rankedGraph: [],
+            topTrending: [],
         };
     }
 
-    componentWillMount(){
+    componentDidMount(){
         let component = this;
         getFromApi(config.paths.topOverview)
         .then(entities => {
@@ -33,9 +35,22 @@ export default class Insights extends Component {
         });
     }
 
+    componentWillUnmount(){
+        this.setState({
+            loadingTopRanked: true,
+            loadingRankedGraph: true,
+            loadingTopTrending: true,
+            topRanked: [],
+            rankedGraph: [],
+            topTrending: [],
+        });
+    }
+
     render() {
         return (
             <div>
+                <NavBar />
+                <Ticker data={this.state.topRanked} loading={this.state.loadingTopRanked}/>
                 <h3>Test</h3>
             </div>
         )
