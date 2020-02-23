@@ -20,19 +20,16 @@ export default class Insights extends Component {
         getFromApi(config.paths.topOverview)
         .then(entities => {
             component.setState({topRanked: entities, loadingTopRanked:false});
-            console.log(component.state);
         });
 
         getFromApi(config.paths.graphRankedTrends)
         .then(entities => {
             component.setState({rankedGraph: entities, loadingRankedGraph:false});
-            console.log(component.state);
         });
 
         getFromApi(config.paths.graphHourlyTrends)
         .then(entities => {
             component.setState({topTrending: entities, loadingTopTrending: false});
-            console.log(component.state);
         });
     }
 
