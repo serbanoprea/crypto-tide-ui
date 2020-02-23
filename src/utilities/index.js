@@ -1,3 +1,5 @@
+import config from '../config';
+
 export const parseJSON = response => response.json();
 
 export const getFromLocalStorage = key => {
@@ -51,3 +53,11 @@ export const generateReducer = (initialState, reducerMap) => (
 
     return reducer ? reducer(state, action.payload) : state;
 };
+
+
+export const getFromApi = path => {
+    return fetch(config.apiEndpoint + path)
+    .then(data => {
+      return data.json();
+    });
+}

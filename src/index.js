@@ -4,13 +4,17 @@ import App from './App';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import generateStore from './store';
+import { BrowserRouter } from 'react-router-dom'
+
 
 const store = generateStore();
 
 ReactDOM.render(    
-    <Provider store={store} key="provider">
-        <App />
-    </Provider>,
+    <BrowserRouter>
+        <Provider store={store} key="provider">
+            <App />
+        </Provider>
+    </BrowserRouter>,
     document.getElementById('root')
 );
 
