@@ -3,6 +3,7 @@ import { getFromApi } from '../../utilities';
 import config from '../../config';
 import NavBar from '../../components/NavBar';
 import Ticker from './components/Ticker';
+import TrendingGraph from './components/TrendingGraph';
 
 export default class Insights extends Component {
     constructor(props){
@@ -51,6 +52,7 @@ export default class Insights extends Component {
             <div>
                 <NavBar />
                 <Ticker data={this.state.topRanked} loading={this.state.loadingTopRanked}/>
+                <TrendingGraph data={this.state.rankedGraph} loading={this.state.loadingRanked}/>
                 <h3>Test</h3>
             </div>
         )

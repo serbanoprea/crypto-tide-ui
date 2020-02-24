@@ -7,8 +7,8 @@ class TickerItem extends Component {
             <div className="ticker__item">{element.name} - ${element.price.toFixed(2)}
             {(element.change > 0 ?
                 <i className="material-icons green-text text-lighten-4">call_made</i> :
-                <i className="material-icons red-text text-lighten-4">call_received</i>)
-            }
+                <i className="material-icons red-text text-lighten-4">call_received</i>
+             )}
             </div>
         )
     }
