@@ -107,3 +107,81 @@ body {
   -moz-box-shadow: 25px 36px 22px -6px rgba(231,166,26,0.34);
   box-shadow: 25px 36px 22px -6px rgba(231,166,26,0.34);
 }
+
+.orange-shadow {  
+  -webkit-box-shadow: 25px 36px 22px -6px rgba(231,166,26,0.34);
+  -moz-box-shadow: 25px 36px 22px -6px rgba(231,166,26,0.34);
+  box-shadow: 25px 36px 22px -6px rgba(231,166,26,0.34);
+}
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+ }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+ }
+}
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    visibility: visible;
+ }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+ }
+}
+.ticker-wrap {
+  top: 0;
+  overflow: hidden;
+  height: 4rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding-left: 100%;
+  box-sizing: content-box;
+}
+.ticker-wrap .ticker {
+  display: inline-block;
+  height: 4rem;
+  line-height: 4rem;
+  white-space: nowrap;
+  padding-right: 100%;
+  box-sizing: content-box;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-name: ticker;
+  animation-name: ticker;
+  -webkit-animation-duration: 30s;
+  animation-duration: 30s;
+}
+.ticker-wrap .ticker__item {
+  display: inline-block;
+  padding: 0 2rem;
+  font-size: 2rem;
+  color: white;
+}
+
+.overview-container {
+  background-color: #2b2b2b;
+}
+
+.overview-container {
+  overflow: hidden;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.top-spaced {
+  margin-top: 5%;
+}
+
+.chart {
+  height: 500px;
+  width: 500px;
+}

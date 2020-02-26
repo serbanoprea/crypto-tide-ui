@@ -1,3 +1,5 @@
+import config from '../config';
+
 export const parseJSON = response => response.json();
 
 export const getFromLocalStorage = key => {
@@ -51,3 +53,18 @@ export const generateReducer = (initialState, reducerMap) => (
 
     return reducer ? reducer(state, action.payload) : state;
 };
+
+
+export const getFromApi = path => {
+    return fetch(config.apiEndpoint + path)
+    .then(data => {
+      return data.json();
+    });
+}
+
+export const getRandomColor = () => {
+  var r = Math.floor(Math.random() * 255);
+  var g = Math.floor(Math.random() * 255);
+  var b = Math.floor(Math.random() * 255);
+  return "rgb(" + r + "," + g + "," + b + ")";
+}
