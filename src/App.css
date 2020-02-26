@@ -108,6 +108,12 @@ body {
   box-shadow: 25px 36px 22px -6px rgba(231,166,26,0.34);
 }
 
+.orange-shadow {  
+  -webkit-box-shadow: 25px 36px 22px -6px rgba(231,166,26,0.34);
+  -moz-box-shadow: 25px 36px 22px -6px rgba(231,166,26,0.34);
+  box-shadow: 25px 36px 22px -6px rgba(231,166,26,0.34);
+}
+
 @-webkit-keyframes ticker {
   0% {
     -webkit-transform: translate3d(0, 0, 0);
@@ -159,4 +165,23 @@ body {
   padding: 0 2rem;
   font-size: 2rem;
   color: white;
+}
+
+.overview-container {
+  background-color: #2b2b2b;
+}
+
+.overview-container {
+  overflow: hidden;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.top-spaced {
+  margin-top: 5%;
+}
+
+.chart {
+  height: 500px;
+  width: 500px;
 }

@@ -25,9 +25,9 @@ export default class NavBar extends Component {
     render() {
         return (
             <div>
-                <nav>
+                <nav className='orange'>
                     <div className="nav-wrapper">
-                    <a href="#!" className="brand-logo">Logo</a>
+                    <a href="#!" className="brand-logo">[Logo]</a>
                     <a href="#" data-target="mobile-nav" className="sidenav-trigger"><i className="material-icons">menu</i></a>
                     <ul className="right hide-on-med-and-down">
                         {this.getAnchors()}
