@@ -7,7 +7,6 @@ export default class ChartGraph extends Component {
 
     componentDidMount(){
         var chartRef = this.chartRef.current.getContext("2d");
-        // Chart.defaults.scale.gridLines.color = "#ffffff";
         var component = this;
         if(!this.props.data.length)
             return;

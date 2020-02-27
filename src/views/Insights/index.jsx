@@ -54,6 +54,8 @@ export default class Insights extends Component {
                 <NavBar />
                 <Ticker data={this.state.topRanked} loading={this.state.loadingTopRanked}/>
 
+                <h2 className="white-text center">Plotly</h2>
+
                 {/* Graphs */}
                 <div className="overview-container orange-shadow">
                     <TrendingGraph data={this.state.rankedGraph} loading={this.state.loadingRanked} title="Top 20 Ranked"/>
@@ -62,7 +64,7 @@ export default class Insights extends Component {
                     <TrendingGraph data={this.state.topTrending} loading={this.state.loadingTopTrending} title="Top 10 Trending"/>
                 </div>
                 
-
+                <h2 className="white-text center">Chart JS</h2>
                 {(
                     !this.state.loadingRankedGraph &&
                     <div className="overview-container orange-shadow top-spaced">
