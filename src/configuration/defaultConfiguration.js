@@ -5,7 +5,8 @@ const config = {
         overviewByCoin: coin => '/api/Overview/CoinOverview/' + coin,
         graphRankedTrends: '/api/Trending/GraphTopRanked',
         graphHourlyTrends: '/api/Trending/GraphHourlyTrends',
-        graphHourlyByCoin: coin => '/api/Trending/GraphHourlyTrends/' + coin
+        graphHourlyByCoin: coin => '/api/Trending/GraphHourlyTrends/' + coin,
+        topDayPerforming: '/api/PopulationStats/TopCoinAggregates'
     }
 }
 

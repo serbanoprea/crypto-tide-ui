@@ -5,21 +5,27 @@ import "materialize-css/dist/css/materialize.min.css";
 
 
 export default class NavBar extends Component {
-    componentDidMount() {
+    componentDidMount() {        
         var elem = document.querySelector(".sidenav");
         var instance = M.Sidenav.init(elem, {
             edge: "left",
-            inDuration: 250
+            inDuration: 350
         });
     }
 
     getAnchors(){
         return (
             <>       
-            <li><Link to='/insights'>Insighs</Link></li>
-            <li><Link to='/login'>Login</Link></li>
+                <li><Link to='/insights'>Insighs</Link></li>
+                <li><Link to='/login'>Login</Link></li>
+                <li><Link to='/overview'>Overview</Link></li>
             </>
         )
+    }
+
+    componentWillUnmount(){
+        var element = document.querySelector('.sidenav-overlay');
+        element.parentNode.removeChild(element);
     }
 
     render() {
@@ -27,15 +33,12 @@ export default class NavBar extends Component {
             <div>
                 <nav className='orange'>
                     <div className="nav-wrapper">
-                    <a href="#!" className="brand-logo">[Logo]</a>
-                    <a href="#" data-target="mobile-nav" className="sidenav-trigger"><i className="material-icons">menu</i></a>
-                    <ul className="right hide-on-med-and-down">
-                        {this.getAnchors()}
-                    </ul>
+                        <a href="#" data-target="nav" className="sidenav-trigger show-on-medium-and-down show-on-large"><i className="material-icons">menu</i></a>
+                        <a href="#!" className="brand-logo center">[Logo]</a>
                     </div>
                 </nav>
 
-                <ul className="sidenav" id="mobile-nav">
+                <ul className="sidenav" id="nav">
                         {this.getAnchors()}
                 </ul>
             </div>
