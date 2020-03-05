@@ -45,17 +45,17 @@ export default class Overview extends Component {
             <div className="row">
             <GraphParallax data={this.state.btcGraph} loading={this.state.loadingBtcGraph} title='Bitcoin to USD'/>
                 <div className="row" id="tiles-row">
-                    <div className="col l3 m12 s12">
-                        <BestPerformingStats data={this.state.topPerforming} loading={this.state.loadingTopPerforming}/>
+                    <div className="show-on-medium-and-up col l3 m6">
+                        <BestPerformingStats data={this.state.topPerforming} loading={this.state.loadingTopPerforming} title='Best Performing 24h'/>
                     </div>
-                    <div className="col l3 m12 s12">
-                        <BestPerformingStats data={this.state.topPerforming} loading={this.state.loadingTopPerforming}/>
+                    <div className="show-on-medium-and-up col l3 m6">
+                        <BestPerformingStats data={this.state.topPerforming} loading={this.state.loadingTopPerforming} title='Best Performing 24h'/>
                     </div>
-                    <div className="col l3 m12 s12">
-                        <BestPerformingStats data={this.state.topPerforming} loading={this.state.loadingTopPerforming}/>
+                    <div className="show-on-medium-and-up col l3 m6">
+                        <BestPerformingStats data={this.state.topPerforming} loading={this.state.loadingTopPerforming} title='Best Performing 24h'/>
                     </div>
-                    <div className="col l3 m12 s12">
-                        <BestPerformingStats data={this.state.topPerforming} loading={this.state.loadingTopPerforming}/>
+                    <div className="show-on-medium-and-up col l3 m6">
+                        <BestPerformingStats data={this.state.topPerforming} loading={this.state.loadingTopPerforming} title='Best Performing 24h'/>
                     </div>
                 </div>
             </div>

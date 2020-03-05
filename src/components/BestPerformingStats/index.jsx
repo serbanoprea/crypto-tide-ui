@@ -25,7 +25,7 @@ export default class BestPerformingStats extends Component {
                     borderWidth: 1,
                     pointRadius: 0,
                     label: t.name,
-                    data: [t.sumDayChange.toFixed(5)]
+                    data: [t.price.toFixed(5)]
                 }
             }),
           },
@@ -33,7 +33,7 @@ export default class BestPerformingStats extends Component {
             responsive: true,
             title:{
                 display:true,
-                text: 'text'
+                text: this.props.title
               },
               tooltips: {
                 mode: 'index',
@@ -71,7 +71,7 @@ export default class BestPerformingStats extends Component {
                 </div>
 
                 <div className="card-content">
-                    <span className="card-title activator grey-text text-darken-4">Best Coins 24h<i className="material-icons right">more_vert</i></span>
+                    <span className="card-title activator grey-text text-darken-4">{this.props.title}<i className="material-icons right">more_vert</i></span>
                 </div>
                 
                 <div className="card-reveal">

@@ -14,7 +14,7 @@ export default class GraphParallax extends Component {
         var component = this;
 
         new Chart(chartRef, {
-          type: "line",          
+          type: "line",
           data: {
             labels: component.props.data[0].dates,
             datasets: component.props.data.map(t => {
