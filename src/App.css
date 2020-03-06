@@ -191,5 +191,5 @@ body {
 }
 
 .card-loading{
-  height: 500px;
+  max-height: 100px;
 }

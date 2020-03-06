@@ -1,10 +1,34 @@
 import React, { Component } from 'react'
 import Loading from '../../components/Loading';
 import Chart from "chart.js";
-import { getRandomColor } from '../../utilities';
 
 export default class BestPerformingStats extends Component {
     chartRef = React.createRef();
+
+    getCollection(){
+        var items = this.props.data.map(entity => {
+            var errored = false;
+            return (
+                <li className="collection-item grey darken-1 avatar" key={entity.symbol}>
+                    <img
+                    src={!errored ? `https://cryptologos.cc/logos/${entity.name.toLowerCase().replace(' ', '-')}-${entity.symbol}-logo.svg?v=001` : "https://cryptologos.cc/logos/startcoin-start-logo.svg?v=001"}
+                    onError = {() => {errored = true}}
+                    className="circle" />
+                    <span className="title amber-text text-lighten-1">{entity.name}</span>
+                    <p><span className="amber-text text-lighten-1">Price: ${entity.price.toFixed(5)}</span><br /><span className='green-text text-lighten-4'>+{entity[this.props.accessor].toFixed(5)}%</span></p>
+                    <a href="#!" class="secondary-content"><i class="material-icons amber-text text-lighten-1">send</i></a>
+                </li>
+            )
+        });
+
+        return (
+            <>
+            <ul className="collection">
+                {items}
+            </ul>
+            </>
+        )
+    }
 
     generateGraph(){
         if(!this.props.data.length)
@@ -32,8 +56,7 @@ export default class BestPerformingStats extends Component {
           options: {
             responsive: true,
             title:{
-                display:true,
-                text: this.props.title
+                display:false
               },
               tooltips: {
                 mode: 'index',
@@ -64,19 +87,19 @@ export default class BestPerformingStats extends Component {
 
     getCards(){
         return (
-            <div className={`card${this.props.loading ? ' card-loading' : ''}`}>
+            <div className={`card${this.props.loading ? ' card-loading' : ''} grey darken-3`}>
                 <div className="card-image waves-effect waves-block waves-light">
                     { this.props.loading && <Loading /> }
                     <canvas className='chart activator' ref={this.chartRef}></canvas>
                 </div>
 
                 <div className="card-content">
-                    <span className="card-title activator grey-text text-darken-4">{this.props.title}<i className="material-icons right">more_vert</i></span>
+                    <span className="card-title activator amber-text text-lighten-2">{this.props.title}<i className="material-icons right">more_vert</i></span>
                 </div>
                 
-                <div className="card-reveal">
-                    <span className="card-title grey-text text-darken-4">Best Performing 24h<i className="material-icons right">close</i></span>
-                    {(this.props.loading ? <Loading /> : <p>Here is some more information about this product that is only revealed once clicked on.</p>)}
+                <div className="card-reveal grey darken-2">
+                    <span className="card-title amber-text text-lighten-2">{this.props.title}<i className="material-icons right">close</i></span>
+                    {(this.props.loading ? <Loading /> : <p>{this.getCollection()}</p>)}
                 </div>
           </div>
         )

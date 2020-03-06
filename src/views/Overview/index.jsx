@@ -14,8 +14,12 @@ export default class Overview extends Component {
             loadingBtcGraph: true,
             loadingTopPerforming: true,
             loadingTopTrending: true,
+            loadingWeeklyTopPerforming: true,
+            loadingMonthlyTopPerforming: true,
             btcGraph: [],
             topPerforming: [],
+            weeklyTopPerforming: [],
+            monthlyTopPerforming: [],
             trend24h: {},
         };
     }
@@ -32,9 +36,14 @@ export default class Overview extends Component {
             component.setState({topPerforming: entities, loadingTopPerforming:false});
         });
 
-        getFromApi(config.paths.graphHourlyTrends)
+        getFromApi(config.paths.topWeekPerforming)
         .then(entities => {
-            component.setState({topTrending: entities, loadingTopTrending: false});
+            component.setState({weeklyTopPerforming: entities, loadingWeeklyTopPerforming:false});
+        });
+
+        getFromApi(config.paths.topMonthPerforming)
+        .then(entities => {
+            component.setState({monthlyTopPerforming: entities, loadingMonthlyTopPerforming:false});
         });
     }
 
@@ -45,17 +54,14 @@ export default class Overview extends Component {
             <div className="row">
             <GraphParallax data={this.state.btcGraph} loading={this.state.loadingBtcGraph} title='Bitcoin to USD'/>
                 <div className="row" id="tiles-row">
-                    <div className="show-on-medium-and-up col l3 m6">
-                        <BestPerformingStats data={this.state.topPerforming} loading={this.state.loadingTopPerforming} title='Best Performing 24h'/>
+                    <div className={`show-on-medium-and-up col l3 m6${this.state.loadingTopPerforming ? ' card-loading': ''}`}>
+                        <BestPerformingStats data={this.state.topPerforming} loading={this.state.loadingTopPerforming} title='Best Performing 24h' accessor='dayChange'/>
                     </div>
-                    <div className="show-on-medium-and-up col l3 m6">
-                        <BestPerformingStats data={this.state.topPerforming} loading={this.state.loadingTopPerforming} title='Best Performing 24h'/>
+                    <div className={`show-on-medium-and-up col l3 m6${this.state.loadingWeeklyTopPerforming ? ' card-loading': ''}`}>
+                        <BestPerformingStats data={this.state.weeklyTopPerforming} loading={this.state.loadingWeeklyTopPerforming} title='Best Performing 1w' accessor='weekChange'/>
                     </div>
-                    <div className="show-on-medium-and-up col l3 m6">
-                        <BestPerformingStats data={this.state.topPerforming} loading={this.state.loadingTopPerforming} title='Best Performing 24h'/>
-                    </div>
-                    <div className="show-on-medium-and-up col l3 m6">
-                        <BestPerformingStats data={this.state.topPerforming} loading={this.state.loadingTopPerforming} title='Best Performing 24h'/>
+                    <div className={`show-on-medium-and-up col l3 m6${this.state.loadingMonthlyTopPerforming ? ' card-loading': ''}`}>
+                        <BestPerformingStats data={this.state.monthlyTopPerforming} loading={this.state.loadingMonthlyTopPerforming} title='Best Performing 30d' accessor='monthChange'/>
                     </div>
                 </div>
             </div>
