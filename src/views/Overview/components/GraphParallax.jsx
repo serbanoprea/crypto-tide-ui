@@ -31,7 +31,7 @@ export default class GraphParallax extends Component {
           options: {
             responsive: true,
             title:{
-                display:true,
+                display:false,
                 text: this.props.title
               },
               tooltips: {
@@ -73,7 +73,7 @@ export default class GraphParallax extends Component {
                             this.props.loading &&
                             <Loading />
                         )}
-                        <canvas className='chart' ref={this.chartRef}></canvas>
+                        <canvas id="padding-bottom-parallax" className='chart' ref={this.chartRef}></canvas>
                     </div>
                 </div>
             </div>

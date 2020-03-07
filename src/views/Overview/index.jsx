@@ -4,10 +4,10 @@ import config from '../../config';
 import NavBar from '../../components/NavBar';
 import GraphParallax from './components/GraphParallax';
 import BestPerformingStats from '../../components/BestPerformingStats';
+import Table from '../../components/Table';
 
 
 export default class Overview extends Component {
-
     constructor(props){
         super(props);
         this.state = {
@@ -16,11 +16,14 @@ export default class Overview extends Component {
             loadingTopTrending: true,
             loadingWeeklyTopPerforming: true,
             loadingMonthlyTopPerforming: true,
+            loadingRankedTopPerforming: true,
+            loadingTableData: true,
             btcGraph: [],
             topPerforming: [],
             weeklyTopPerforming: [],
             monthlyTopPerforming: [],
-            trend24h: {},
+            rankedTopPerforming: [],
+            tableData: []
         };
     }
 
@@ -45,6 +48,16 @@ export default class Overview extends Component {
         .then(entities => {
             component.setState({monthlyTopPerforming: entities, loadingMonthlyTopPerforming:false});
         });
+
+        getFromApi(config.paths.topRankedPerforming)
+        .then(entities => {
+            component.setState({rankedTopPerforming: entities, loadingRankedTopPerforming:false});
+        });
+
+        getFromApi(config.paths.pagedRanked(1, 1000))
+        .then(entities => {
+            component.setState({tableData:entities, loadingTableData:false});
+        });
     }
 
   render() {
@@ -63,7 +76,13 @@ export default class Overview extends Component {
                     <div className={`show-on-medium-and-up col l3 m6${this.state.loadingMonthlyTopPerforming ? ' card-loading': ''}`}>
                         <BestPerformingStats data={this.state.monthlyTopPerforming} loading={this.state.loadingMonthlyTopPerforming} title='Best Performing 30d' accessor='monthChange'/>
                     </div>
+                    <div className={`show-on-medium-and-up col l3 m6${this.state.loadingRankedTopPerforming ? ' card-loading': ''}`}>
+                        <BestPerformingStats data={this.state.rankedTopPerforming} loading={this.state.loadingRankedTopPerforming} title='Top Ranked Weekly' accessor='weekChange'/>
+                    </div>
                 </div>
+            </div>
+            <div className="container row table-container">
+                <Table data={this.state.tableData} loading={this.state.loadingTableData}/>
             </div>
         </>
     );

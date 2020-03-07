@@ -191,5 +191,14 @@ body {
 }
 
 .card-loading{
-  max-height: 100px;
+  max-height: 150px;
+  overflow: hidden;
+}
+
+#padding-bottom-parallax {
+  padding-bottom: 20%;
+}
+
+.table-container{
+  background-color: #fff;
 }

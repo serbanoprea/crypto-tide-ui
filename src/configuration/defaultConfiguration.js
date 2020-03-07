@@ -8,7 +8,9 @@ const config = {
         graphHourlyByCoin: coin => '/api/Trending/GraphHourlyTrends/' + coin,
         topDayPerforming: '/api/PopulationStats/TopDailyCoinAggregates',
         topWeekPerforming: '/api/PopulationStats/TopWeeklyCoinAggregates',
-        topMonthPerforming: '/api/PopulationStats/TopMonthlyCoinAggregates'
+        topMonthPerforming: '/api/PopulationStats/TopMonthlyCoinAggregates',
+        topRankedPerforming: '/api/PopulationStats/TopRankedAggregates',
+        pagedRanked: (pageNumber = 1, pageSize=30) => `/api/Trending/Page/${pageNumber}/${pageSize}`
     }
 }
 
